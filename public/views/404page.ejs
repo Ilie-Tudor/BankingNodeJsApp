@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not found</title>
+    <link rel="stylesheet" href="/404.css">
+    <%- include("components/font.ejs") %> 
+</head>
+<body>
+
+    <div class="content">
+        <div class="content-wrapper">
+            <div class="status"><h1>404</h1></div>
+            <div class="message">
+                <p>
+                The page you were looking for was not found
+                </p>
+            </div>
+            <button>Go back</button>
+        </div>
+    </div>
+
+
+    <script>
+        let button = document.getElementsByTagName('button')[0]
+        button.addEventListener("click",()=>{
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET','/',true);
+            
+            console.log("click");
+            xhr.onload = function(){
+                if(this.status == 200){
+                    console.log("redirecting");
+                    window.location.href = "/";
+                }
+            }
+            xhr.send();
+        });
+    </script>
+</body>
+</html>

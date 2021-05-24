@@ -1,0 +1,58 @@
+[
+    {
+        "city": "Iasi",
+        "street": "Strada Palas 7A",
+        "program": 
+        {
+            "luni": "9-18",
+            "marti": "9-18",
+            "miercuri": "9-18",
+            "joi": "9-18",
+            "vineri": "9-18",
+            "sambata": "9-12",
+            "duminica": "inchis"
+        }
+    },
+    {
+        "city": "Bucuresti",
+        "street": "Bulevardul Decebal 16",
+        "program": 
+        {
+            "luni": "8-18",
+            "marti": "8-18",
+            "miercuri": "8-18",
+            "joi": "9-18",
+            "vineri": "9-18",
+            "sambata": "9-12",
+            "duminica": "9-12"
+        }
+    },
+    {
+        "city": "Brasov",
+        "street": "Piața Sfatului 18",
+        "program": 
+        {
+            "luni": "9-18",
+            "marti": "9-18",
+            "miercuri": "9-18",
+            "joi": "9-18",
+            "vineri": "9-18",
+            "sambata": "9-12",
+            "duminica": "inchis"
+        }
+    },
+    {
+        "city": "Timisoara",
+        "street": "Strada Paris 2",
+        "program": 
+        {
+            "luni": "9-18",
+            "marti": "9-18",
+            "miercuri": "9-18",
+            "joi": "9-18",
+            "vineri": "9-18",
+            "sambata": "inchis",
+            "duminica": "inchis"
+        }
+    }
+]

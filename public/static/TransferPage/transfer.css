@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --color1: #5A3A31;
+    --color2: #31231E;
+    --color3: #84714F;
+    --color4: black;
+    --color5: lightgrey;
+    --color6: white;
+}
+input,select,textarea{
+    border: none;
+    text-decoration: none;
+    outline: none;
+}
+
+
+.content{
+    position: relative;
+    width: 100%;
+}
+.content-wrapper{
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 0 5px;
+    padding-top: 40px;
+    border: 3px solid var(--color1);
+    border-top: none;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background: ghostwhite;
+}
+.content-wrapper>*{
+    margin: 0 10px;
+}
+.content-wrapper>h3{
+    font-size: 200%;
+    margin-bottom: 40px;
+}
+.content-wrapper>section{
+    position: relative;
+    margin-top: 40px;
+}
+.content-wrapper>section:nth-of-type(1){
+    border-bottom: 1px solid var(--color1);
+}
+.content-wrapper>section:nth-of-type(1)>h4{
+    font-size: 150%;
+}
+.content-wrapper>section:nth-of-type(1)>select{
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 110%;
+}
+.select-selected {
+    background-color: red;
+  }
+.receiver-info{
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.receiver-info>h4{
+    font-size: 150%;
+}
+.receiver-info>.receiver-form{
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.receiver-info>.receiver-form>*{
+    width: 100%;
+    padding: 10px 10px;
+    margin-top: 10px;
+    font-size: 110%;
+    border-bottom: 1px solid var(--color1);
+}
+.receiver-info>.receiver-form>*:focus{
+    border-bottom: 3px solid var(--color1);
+}
+#submit{
+    background: var(--color2);
+    color: white;
+    padding: 10px 0;
+    font-size: 120%;
+    border: none;
+}
+#submit:hover{
+    background: var(--color1);
+}
+#submit:active{
+    background: var(--color2);
+}

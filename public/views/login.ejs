@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/LoginPage/login.css">
+    <%- include("components/font.ejs") %> 
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="form-box">
+        <h1 class="logo">TBank</h1>
+        <form if="form" action="/api/login" method="POST">
+            <h1>LogIn</h1>
+            <div>
+                <input type="text" name="emailOrUsername" placeholder="Your email or username" required>
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="Your password" required>
+            </div>
+            <div>
+                <% if (errMsg) { %>
+                <ul>
+                    <% errMsg.forEach(element => { %>
+                        <li><%- element %> </li>    
+                    <% }) %>
+                </ul>
+                <% } %>
+            </div>
+            <div class="action-box">
+                <a href="/register">Dont have an account?</a>
+                <button type="submit">Log In</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/LoginPage/loginCanvas.js"></script>
+</body>
+</html>

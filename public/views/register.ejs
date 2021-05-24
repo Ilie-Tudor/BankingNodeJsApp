@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/RegisterPage/register.css">
+    <%- include("components/font.ejs") %> 
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="form-box">
+        <h1 class="logo">TBank</h1>
+        <form if="form" action="/api/register" method="POST">
+            <h1>SignIn</h1>
+            <div>
+                <input type="text" id = "email" name="email" placeholder="Your email"  required>
+                <span></span>
+            </div>
+            <div>
+                <input type="text" id = "username" name="username" placeholder="Your username" required>
+                <span></span>
+            </div>
+            <div>
+                <input type="password" id = "password" name="password" placeholder="Your password" required>
+                <span></span>
+            </div>
+            <div>
+                <input type="password" id = "retype" name="retype" placeholder="Retype yout password" required>
+                <span></span>
+            </div>
+            <div>
+                <input type="text" id = "depostiName" name="depositName" placeholder="Your desired first deposit name" required>
+                <span></span>
+            </div>
+            <div>
+                <input type="password" id = "iban" name="iban" placeholder="Your iban number" required>
+                <span></span>
+            </div>
+            <div>
+                <% if (errMsg) { %>
+                <ul>
+                    <% errMsg.forEach(element => { %>
+                        <li><%- element %> </li>    
+                    <% }) %>
+                </ul>
+                <% } %>
+            </div>
+            <div class="action-box">
+                <a href="/login">Already a client?</a>
+                <button type="submit" id="submit">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/RegisterPage/registerCanvas.js"></script>
+    <script src="/RegisterPage/registerValidation.js"></script>
+</body>
+
+</html>

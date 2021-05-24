@@ -1,0 +1,43 @@
+[{
+    "id": "aafa0b05-92dd-4536-bcd6-8a8c6501f7d3",
+    "email": "tudor_alex.ilie@yahoo.com",
+    "username": "Ilie_Tudor",
+    "password": "ita_14_wallet",
+    "deposits": [{
+        "name": "Depozit economii",
+        "iban": "RO43253hjkldfa",
+        "credit": 200,
+        "cards": []
+    }, {
+        "name": "Depozit salariu",
+        "iban": "RO43253hjf777a",
+        "credit": 400,
+        "cards": [
+            {
+                "type":"Visa",
+                "number": "1111 2222 3333 4444"
+            },
+            {
+                "type":"Master",
+                "number": "1111 2222 3333 4444"
+            }
+        ]
+    }]
+}, {
+    "id": "25396a9b-acee-4d11-9182-84f902f45491",
+    "email": "a@a",
+    "username": "A",
+    "password": "a",
+    "deposits": [{
+        "name": "ADeposit",
+        "iban": "BZjjjsi272813",
+        "credit": 400,
+        "cards": [
+            {
+                "type":"Master",
+                "number": "1111 2222 3333 4444"
+            }
+        ]
+    }]
+}
+]

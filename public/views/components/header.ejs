@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="./Header/header.css">
+<link rel="stylesheet" href="./Header/toggleInput.css">
+    <div class="aux">a</div>
+    <header>
+        <div class="header-wrapper">
+            <div class="nav-wrapper">
+                <button class="avatar nav-open hover-magnify" id="Nav-Open">
+                    &#9776
+                </button>
+                <nav class="hidden" id="Nav">
+                    <div class="nav-header">
+                        <div>
+                            <div class="avatar nav-avatar"><img src="/Pictures/Others/user-solid.svg" alt=""></div>
+                            <h3 class="nav-title">
+                                <% if (user) { %>
+                                    <%= user.username %>
+                                <% } %>
+                             </h3>
+                        </div>
+                        <button class="nav-close hover-colorChange" id="Nav-Close"> &#10006</button>
+                    </div>
+                    <ul>
+                        <li class="nav-menu-title">Meniu</li>
+                        <li class="nav-option"><a href="/">Acasa</a></li>
+                        <li class="nav-option"><a href="/transfer">Transfer de bani</a></li>
+                        <li class="nav-option"><a href="/locations">Locatii</a></li>
+                        <li class="loginout">
+                            <% if (user) { %>
+                                <form action="/api/logout" method="POST">
+                                    <button type="submit" id="LogIn" class="hover-magnify">Log Out</button>
+                                </form>
+                            <% } %>
+                            <% if (!user) { %>
+                                <a href="/login" id="LogIn" class="hover-magnify">Log In</a>
+                            <% } %>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="logo-wrapper">
+                <h3>TBank</h3>
+            </div>
+            <div>
+
+                <label class="switch">
+                    <input type="checkbox" class="toggle" id="Toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+    <script src="./Header/header.js"></script>

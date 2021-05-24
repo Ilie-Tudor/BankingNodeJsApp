@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+.content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.content-wrapper{
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 60% auto;
+    grid-template-areas: 
+        "status message"
+        "button button"
+    ;
+}
+.content-wrapper>div{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 5px;
+}
+.status{
+    grid-area: status;
+    justify-self: flex-end;
+}
+.message{
+    grid-area: message;
+    justify-self: flex-start;
+    border-left: 3px solid #5A3A31;
+}
+.status>h1{
+    width: 100px;
+    text-align: end;
+    padding-right: 20px;
+    font-size: 400%;
+    color: #5A3A31;
+}
+.message>p{
+    width: 100px;
+    padding-left: 20px;
+    font-size: 150%;
+    color: #5A3A31;
+}
+button{
+    margin: 0 50px;
+    margin-top: 80px;
+    grid-area: button;
+    background: #5A3A31;
+    border: none;
+    color: white;
+}
+button:hover{
+    background: #31231E;
+}

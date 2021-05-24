@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBank</title>
+    <link rel="stylesheet" href="./index.css">
+    <%- include("components/font.ejs") %> 
+</head>
+<body>
+    
+    <%- include("components/header.ejs",{user}) %> 
+
+    <div class="content">
+        <div class="content-wrapper">
+            <section class="banner-wrapper"></section>
+            <section class="deposits-wrapper">
+                <h2><p>Depozitele mele</p></h2>
+            <% user.deposits.forEach(dep => { %>
+                <div class="deposit-box">
+                    <a href="/depositView/<%= dep.iban %>" class="card deposit-card">
+                        <div class="deposit-card-wrapper">
+                            <h3><%= dep.name %> </h3>
+                            <p> Suma in depozit: <strong><%= dep.credit %> lei </strong> </p>
+                            <p> Iban: <strong><%= dep.iban %></strong> </p>
+                        </div>
+                    </a>
+                    <a href="/transfer" class="transaction-btn">
+                        Trimite bani <span></span>
+                    </a>
+                </div>
+            <% }) %>
+            <a href="#" class="card add-card">
+                &#43;
+            </a>
+            
+            </section>
+
+            <section class="cards-wrapper">
+                <h2><p>Cardurile mele</p></h2>
+
+                <% user.deposits.forEach(dep => { %>
+                    <% dep.cards.forEach(card => { %>
+                        <div class="card card-card">
+                            <img src="/Pictures/CardsPictures/<%= card.type %>Card.jpg" alt="card">
+                        </div>
+                    <% }) %>
+                <% }) %>
+                <a href="#" class="card add-card">
+                    &#43;
+                </a>
+                
+            </section>
+        </div>
+    </div>
+    
+</body>
+</html>

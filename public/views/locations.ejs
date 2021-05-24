@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locatiile noastre</title>
+    <link rel="stylesheet" href="locations.css">
+    <%- include("components/font.ejs") %> 
+</head>
+<body>
+    <% if (user) { %>
+        <%- include("components/header.ejs",{user}) %> 
+    <% }else{%>
+        <%- include("components/header.ejs") %> 
+    <% }%>
+    
+
+
+    <div class="content">
+        <div class="content-wrapper">
+            <h1 class="page-title">Locatiile noastre</h1>
+            <div class="location-cards-wrapper">
+                <% for(location of locations) {%>
+                    <a href="#" class="location-card">
+
+                        <div class="adress-program-box">
+                        <div class="adress-wrapper">
+                                <div>
+                                    <div class="city"><%- location.city %> </div>
+                                    <div class="street"><%- location.street %> </div>
+                                </div>
+                        </div>
+    
+                        <div class="program-wrapper">
+                            <div class="program-title"><strong>Program:</strong></div>
+                            <div>
+                                <div>Luni <span><%- location.program.luni %> </span> </div>
+                                <div>Marti<span><%- location.program.marti %> </span> </div>
+                                <div>Miercuri<span><%- location.program.miercuri %> </span> </div>
+                                <div>Joi<span><%- location.program.joi %> </span> </div>
+                                <div>Vineri<span><%- location.program.vineri %> </span> </div>
+                                <div>Sambata<span><%- location.program.sambata %> </span> </div>
+                                <div>Duminica<span><%- location.program.duminica %> </span> </div>
+                            </div>
+                        </div>
+                        </div>
+    
+                        <div class="map-picture-wrapper">
+                            <div>
+                                <img src="https://e3.365dm.com/18/05/768x432/skynews-world-map-map_4298829.jpg?20180502134213" alt="">
+                            </div>
+                        </div>
+                    </a>
+                <% } %>  
+            </div>
+
+
+        </div>
+    </div>
+    
+</body>
+</html>

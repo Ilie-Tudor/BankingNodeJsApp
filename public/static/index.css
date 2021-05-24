@@ -3,93 +3,200 @@
     padding: 0;
 }
 
-
-/* components css */
-
-/* components css end*/
-.hidden{
-    display: none;
-}
-.avatar{
+/* content css */
+.card{
     position: relative;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
+    display: inline-block;
+    margin: 10px;
+    text-decoration: none;
+    color: var(--color4);
+    overflow: hidden;
 }
-/* headder css */
-header{
-    position: relative;
-    width: 100%;
-}
-.header-wrapper{
-    position: relative;
-    width: 100%;
-    height: 80px;
-    background-color: red;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.nav-wrapper{
-    position: relative;
-    align-self: flex-start;
-    width: 50px;
-    height: 100%;
-}
-.nav-wrapper nav{
+.card::after{
+    z-index: 5;
     position: absolute;
-    width: 350px;
-    height: 100vh;
-    background: blue;
-    top: 0px;
-    left: 0px;
+    content: "";
+    top: 0%;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: var(--color4);
+    opacity: 0.7;
+    transition: 0.3s;
+    transform: translateX(0) skew(-45deg);
+    transform-origin: bottom left;
 }
-.nav-header{
+.card::before{
+    z-index: 5;
+    position: absolute;
+    content: "";
+    top: 0%;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--color6);
+    opacity: 0.7;
+    transition: 0.3s;
+    transform: translateX(0) skew(-45deg);
+    transform-origin: top right;
+}
+.card:hover::after{
+    transform: translateX(-88%) skew(-45deg);
+}
+.card:hover::before{
+    transform: translateX(88%) skew(-45deg);
+}
+.card a{
+    text-decoration: none;
+    color: var(--color4);
+}
+.card a:hover{
+    text-decoration: underline;
+}
+.card>div{
+    position: relative;
+    z-index: 99;
+}
+.card>div>*{
+    position: relative;
+    z-index: 99;
+}
+.add-card{
+    position: relative;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100px;
+    background: var(--color5);
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-top: 10px;
+    font-size: 500%;
+}
+/* section 1 --> banner */
+.content{
     position: relative;
     width: 100%;
-    height: 80px;
-    background-color: rgb(143, 27, 27);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    z-index: 90;
 }
-.nav-header>div{
+.content-wrapper{
     position: relative;
-    max-width: 300px;
-    height: 100%;
+    width: 100%;
+}
+.banner-wrapper{
+    position: relative;
+    width: 100%;
+    height: 170px;
+    background: url('/Pictures/Others/banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-size: cover;
+
+    overflow: hidden;
+}
+
+/* section 1 --> banner end */
+
+/* section 2 --> deposits */
+.deposits-wrapper{
+    position: relative;
+    width: 100%;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
 }
-.nav-title{
-    margin-left: 5px;
-    max-width: 250px;
+.deposits-wrapper>h2{
+    width: 100%;
 }
-.nav-avatar{
+.deposits-wrapper>h2>p{
+    font-size: 130%;
+    margin:  10px 0 10px 10px;
+}
+.deposits-wrapper>.deposit-box{
+    max-width: 300px;
+    width: 100%;
     margin: 10px;
 }
-.nav-close{
+.deposit-box .transaction-btn{
     position: relative;
-    width: 35px;
-    height: 35px;
-    margin-right: 10px;
+    display: inline-block;
+    width: 100%;
+    border: none;
+    padding: 15px 0;
+    background: var(--color1); 
+    font-size: 110%;
+    color: var(--color6);
+    bottom: 4px;
+    text-align: center;
+    text-decoration: none;
 }
-nav>ul{
+.deposit-box span{
+    position: relative;
+    display: none;
+    width: 25px;
+    height: 12px;
+    margin-left: 10px;
+    clip-path: polygon(20% 50%, 0 0, 80% 0, 100% 50%, 80% 100%, 0 100%);
+    background: var(--color6);
+
+}
+.deposit-box>.transaction-btn:hover span{
+    display: inline-block;
+}
+.deposit-card{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 200px;
+    background: var(--color5);
+    margin: 0;
+    box-sizing: border-box;
+}
+.deposit-card>div>*{
+    padding: 0 10px;
+}
+.deposit-card>div>h3{
+    margin-top: 30px;
+}
+.deposit-card>div>p{
+    margin-top: 30px;
+}
+
+/* section 2 --> deposits end */
+
+/* section 3 --> cards*/
+.cards-wrapper{
     position: relative;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-    list-style-type: none;
+    flex-wrap: wrap;
+    margin-top: 50px;
 }
-nav>ul>li{
-    padding: 10px;
-    font-size: 120%;
+.cards-wrapper>h2{
+    width: 100%;
+}
+.cards-wrapper>h2>p{
+    font-size: 130%;
+    margin:  10px 0 10px 10px;
+}
+.card-card{
+    position: relative;
+    display: inline-block;
+    max-width: 300px;
+    width: 100%;
+    background: var(--color5);
+    margin: 10px;
+    border-radius: 20px;
+}
+.card-card>img{
+    width: 100%;
+    height: 100%;
+}
+/* section 3 --> cards end */
 
-}
-/* headder css end */
+
+
+/* content css end */

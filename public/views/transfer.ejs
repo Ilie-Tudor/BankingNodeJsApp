@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer</title>
+    <link rel="stylesheet" href="/TransferPage/transfer.css">
+    <%- include("components/font.ejs") %> 
+</head>
+<body>
+    <% if (user) { %>
+        <%- include("components/header.ejs",{user}) %> 
+    <% }else{%>
+        <%- include("components/header.ejs") %> 
+    <% }%>
+
+    <div class="content">
+        <div class="content-wrapper">
+            <h3>Transfera bani</h3>
+            <section class="deposit-selection">
+                <h4>Selecteaza depozitul din care doresti sa trimiti</h4>
+                <select name="deposit" id="deposit">
+                    <% user.deposits.forEach(dep => { %>
+                        <option value="<%= dep.iban %>">
+                            <div class="deposit-name"><%= dep.name %>, <%= dep.iban %></div>
+                             : 
+                            <span class="avalible-sum"><%= dep.credit %> lei </span>
+                        </option>
+                    <% }) %>
+
+                    
+                </select>
+            </section>
+
+            <section class="receiver-info">
+                <h4>Completeaza detaliile primitorului</h4>
+                <div class="receiver-form">
+                    <input id="receiver-iban" type="text" name="iban" placeholder="IBAN" required>
+                    <input id="amount" type="number" name="amount" placeholder="Suma" required>
+                    <textarea id="description" style="font-size: 140%;" rows="4" name="description" id="description" placeholder="Descriere" maxlength="200"></textarea>
+                    <button type="submit" id="submit">Send money</button>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <script src="/TransferPage/transferSend.js"></script>
+</body>
+</html>

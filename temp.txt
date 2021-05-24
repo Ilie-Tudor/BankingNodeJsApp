@@ -1,0 +1,18 @@
+un user are:
+
+id: unic
+email: e unic;
+username: e unic;
+password: nu e unica;
+depozite:[
+    {
+        iban: unic peste tot
+        bani in depozit: initial 0;
+        carduri:[
+            {
+                cod card: unic peste tot;
+                tip card: visa/mastercard/american express;
+            }
+        ] -> maxim 2 per depozit;
+    }
+]-> maxim 3
