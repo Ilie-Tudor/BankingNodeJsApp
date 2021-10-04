@@ -29,7 +29,7 @@ function WriteUsers(users){
 }
 function GetDeposit(iban, userid){
     let user = GetUser(userid);
-    let deposit = user.deposits.filter(dep=>dep.iban==iban);
+    let deposit = user.deposits.filter(dep=>dep.iban==iban)[0];
     return deposit;
 }
 function RedirectToLogin(req,res,next){
@@ -67,19 +67,18 @@ app.use(express.urlencoded({
 app.set("views", path.join(__dirname,'public/views'));
 app.set("view engine", 'ejs');
 
-app.get('/',RedirectToLogin,(req,res)=>{
-    user = GetUser(req.session.userId);
-    res.render('index.ejs',{})
+app.get('/', RedirectToLogin, (req,res)=>{
+    let user = GetUser(req.session.userId);
+    res.render('index.ejs',{user});
 });
 app.get('/transfer',RedirectToLogin,(req,res)=>{
-    user = GetUser(req.session.userId);
+    let user = GetUser(req.session.userId);
     res.render('transfer.ejs', {user});
 });
 app.get('/locations', (req,res)=>{
     let locations = JSON.parse(fs.readFileSync('./DB/locations.json'));
-    user = GetUser(req.session.userId);
+    let user = GetUser(req.session.userId);
     res.render('locations.ejs', {user,locations});
-    
 })
 app.get('/register',RedirectToHome,(req,res)=>{
     let errMsg = undefined;
@@ -89,9 +88,16 @@ app.get('/login',RedirectToHome,(req,res)=>{
     let errMsg = [];
     res.render('login.ejs',{errMsg});
 })
-app.get('/depositView/:iban',RedirectToLogin,(req,res)=>{
-    res.json(GetDeposit(req.params.iban,req.session.userId));
+app.get('/depositView/:iban', RedirectToLogin, (req,res)=>{
+    let deposit = GetDeposit(req.params.iban,req.session.userId);
+    console.log("d:", deposit);
+    let user = GetUser(req.session.userId);
+    res.render('depositView.ejs',{user,deposit});
 })
+app.get('/newDeposit', RedirectToLogin, (req, res)=>{
+    let user = GetUser(req.session.userId);
+    res.render('newDeposit.ejs',{user});
+});
 
 app.post('/api/login',RedirectToHome,(req,res)=>{
     let allUsers = fs.readFileSync('./DB/users.json');
@@ -202,11 +208,24 @@ app.post('/api/transfer', RedirectToLogin,(req,res)=>{
                     }
                 }
             })
-            
         }
     });
     WriteUsers(allUsers);
-    
+});
+app.post('/api/newDeposit', RedirectToLogin, (req,res)=>{
+    let newDeposit = {  name: req.body.depositName,
+                        iban: req.body.iban,
+                        credit: req.body.credit,
+                        cards: []};
+    let users = GetAllUsers()
+    for(let i=0;i<users.length;i++){
+        if(users[i].id==req.session.userId){
+            users[i].deposits.push(newDeposit);
+            break;
+        }
+    }
+    WriteUsers(users);
+    res.redirect('/');
 });
 
 

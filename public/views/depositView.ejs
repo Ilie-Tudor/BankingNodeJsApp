@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBank</title>
+    <link rel="stylesheet" href="/DepositViewPage/depositView.css">
+    <%- include("components/font.ejs") %>
+
+</head>
+<body>
+    <!-- de pus aici ca la paginile care nu pot fi accesate fara a fi logat -->
+    <% if (user) { %>
+        <%- include("components/header.ejs",{user}) %> 
+    <% }else{%>
+        <%- include("components/header.ejs") %> 
+    <% }%>
+
+    <div class="content">
+        <div class="content-wrapper">
+            <div class="deposit-info-wrapper">
+                <h1 class="deposit-name"><%= deposit.name %>  <span><button id="share"><img src="/Pictures/Others/share.png" alt="share"></button></span></h1>
+                <div class="credits"><%= deposit.credit %><span> lei</span></div>
+                <div class="iban">IBAN: <%= deposit.iban %></div>
+            </div>
+            <div class="history-wrapper">
+                <h3 class="history-title">Istoric tranzactii</h3>
+                <div class="transctions-wrapper">
+                    <div class="transaction-box">
+                        tranzactie1
+                    </div>
+                    <div class="transaction-box">
+                        tranzactie2
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="/DepositViewPage/copyToClipboard.js"></script>
+    
+</body>
+</html>

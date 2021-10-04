@@ -1,0 +1,79 @@
+.content{
+    position: relative;
+    width: 100%;
+    padding-top: 80px;
+}
+.content-wrapper{
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+.deposit-info-wrapper{
+    position: relative;
+    width: 100%;
+    background: lightgray;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-areas: 
+            "name credits"
+            "iban credits"
+            ;
+    grid-template-columns: auto 100px;
+}
+.deposit-info-wrapper>*{
+    padding-top: 5px;
+}
+.deposit-name{
+    grid-area: "name";
+}
+.deposit-name button{
+    border: none;
+    background: lightgray;
+    width: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.deposit-name img{
+    width: 100%;
+}
+.deposit-name>span{
+    font-size: 50%;
+}
+.iban{
+    font-size: 120%;
+    grid-area: "iban";
+}
+.credits{
+    position: relative;
+    top: 50%;
+    text-align: end;
+    padding-right: 5px;
+    font-size: 120%;
+    font-weight: 900;
+    grid-area: "credits";
+}
+.history-wrapper{
+    position: relative;
+    width: 100%;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    background: lightgray;
+}
+.transctions-wrapper{
+    position: relative;
+    width: 100%;
+    padding-top: 10px;
+}
+.transaction-box{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 0;
+    padding-left: 5px;
+    margin: 10px 0;
+    border-bottom: 1px solid black;
+    border-left: 2px solid black;
+}

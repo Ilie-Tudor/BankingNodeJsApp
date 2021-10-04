@@ -1,0 +1,58 @@
+.content{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 2px;
+}
+.content-wrapper{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 500px;
+    background: ghostwhite;
+    margin: auto;
+    margin-top: 80px;
+    padding: 30px 10px;
+    border-radius: 20px;
+    border: 2px solid #31231E;
+}
+h2{
+    position: relative;
+    display: inline-block;
+    padding-bottom: 40px;
+}
+form{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-size: 120%;
+}
+label{
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.form-input{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    padding: 5px 5px;
+}
+.submit-btn{
+    position: relative;
+    height: 40px;
+    font-size: 90%;
+    background: #31231E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+.submit-btn:hover{
+    background: black;
+}
+

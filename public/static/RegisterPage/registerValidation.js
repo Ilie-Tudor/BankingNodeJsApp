@@ -17,9 +17,11 @@ function  verifyValidationArray(ValidationArray){
 function ButtonActivate(){
     if(verifyValidationArray(ValidationArray)){
         sendBtn.removeAttribute('disabled');
+        console.log(ValidationArray,'valid');
     }
     else{
         sendBtn.setAttribute('disabled', true);
+        console.log(ValidationArray,'invalid');
     }
 
 }
@@ -83,6 +85,7 @@ retype_Input.addEventListener('input',(e)=>{
 });
 iban_Input.addEventListener('input',(e)=>{
     Validation_event_funtion(e,isIban,"Ibanul este valid",4);
+    ButtonActivate()
 });
 depostiName.addEventListener('input',(e)=>{
     Validation_event_funtion(e,isDepositName,"Numele depozitului este valid",5);

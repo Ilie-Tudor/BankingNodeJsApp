@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Deposit</title>
+    <link rel="stylesheet" href="/newDeposit.css">
+</head>
+<body>
+
+    <%- include("components/header.ejs",{user}) %>
+    <div class="content">
+        <div class="content-wrapper">
+            <h2>Completati informatiile pentru noul depozit</h2>
+            <form action="/api/newDeposit" method="post">
+                <label for="depositName">Numele noului depozit</label>
+                <input class="form-input" type="text" name="depositName" required>
+        
+                <label for="iban">Ibanul noului depozit</label>
+                <input class="form-input" type="text" name="iban" required>
+        
+                <label for="credit">Creditele initiale ale noului depozit</label>
+                <input class="form-input" type="number" name="credit" required>
+                <button class="submit-btn" type="submit">Creeaza depozitul</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
